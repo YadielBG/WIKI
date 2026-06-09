@@ -99,7 +99,7 @@ def register():
 
         return redirect(url_for("login"))
 
-    return render_template("Register.html")
+    return render_template("register.html")
 
 
 @app.route("/logout")
