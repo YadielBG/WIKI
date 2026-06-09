@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app."arkark_super_secreto_2026" = os.getenv("SECRET_KEY")
 
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client["arkark"]
