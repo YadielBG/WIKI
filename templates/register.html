@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARK-ARK REGISTER</title>
+
+<style>
+
+body{
+    margin:0;
+    background:#000;
+    color:#00ff00;
+    font-family:Courier New, monospace;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+}
+
+.terminal{
+    width:500px;
+    border:3px solid #00ff00;
+    padding:30px;
+    box-shadow:0 0 20px #00ff00;
+    background:#050505;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:20px;
+
+    background:black;
+    border:1px solid #00ff00;
+
+    color:#00ff00;
+}
+
+button{
+    width:100%;
+    padding:12px;
+
+    background:black;
+    border:1px solid #00ff00;
+
+    color:#00ff00;
+
+    cursor:pointer;
+}
+
+button:hover{
+    background:#00ff00;
+    color:black;
+}
+
+.flash{
+    color:red;
+    margin-bottom:15px;
+}
+
+a{
+    color:#00ff00;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="terminal">
+
+<h1>CREAR USUARIO</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
+<form method="POST">
+
+<label>Usuario</label>
+<input type="text" name="username" required>
+
+<label>Contraseña</label>
+<input type="password" name="password" required>
+
+<button type="submit">
+REGISTRAR
+</button>
+
+</form>
+
+<br>
+
+<p>
+¿Ya tienes cuenta?
+<a href="{{ url_for('login') }}">
+Iniciar sesión
+</a>
+</p>
+
+</div>
+
+</body>
+</html>

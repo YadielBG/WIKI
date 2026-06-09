@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genshin Impact</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/GI Styles/styles.css') }}">
+
+</head>
+<body>
+
+<!-- 🎬 GIF FONDO -->
+<div id="bg-gif"></div>
+
+<!-- 🌑 OVERLAY -->
+<div id="overlay"></div>
+
+<!-- 🤖 MASCOTA GLOBAL -->
+<div id="floatingMascot">
+  <img src="{{ url_for('static', filename='pet/GI Pet/neuto.png') }}" id="floatingMascotImg" alt="Mascota">
+  <div id="floatingDialogue">
+    ¿Listos para explorar los secretos de Teyvat?
+  </div>
+</div>
+
+<!-- 🧭 HERO -->
+<header class="hero">
+  <img src="{{ url_for('static', filename='logos/GI Logos/logo.webp') }}" class="logo" alt="Genshin Impact Logo">
+  <button onclick="scrollToSection()">Explorar Teyvat</button>
+</header>
+
+<!-- 📚 SECCIONES -->
+<main>
+  <section>
+    <h2>Historia (Capítulos)</h2>
+    <button onclick="openSelector('lore')">Acceder</button>
+  </section>
+
+  <section>
+    <h2>Misterios de Teyvat</h2>
+    <button onclick="openSelector('misterios')">Acceder</button>
+  </section>
+
+  <section>
+    <h2>Curiosidades Regionales</h2>
+    <button onclick="openSelector('curiosidades')">Acceder</button>
+  </section>
+</main>
+
+<!-- 🎮 SELECTOR INTERACTIVO -->
+<div id="gameSelector" class="hidden">
+  <div class="box">
+    <h2 id="question">¿Qué región o arco deseas consultar?</h2>
+
+    <!-- 🎮 LOGOS / ICONOS DE REGIONES -->
+    <div class="games">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE0.webp') }}" onclick="selectGame('re0')" alt="Mondstadt">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE1.webp') }}" onclick="selectGame('re1')" alt="Liyue">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE2.webp') }}" onclick="selectGame('re2')" alt="Inazuma">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE3.webp') }}" onclick="selectGame('re3')" alt="Sumeru">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE4.webp') }}" onclick="selectGame('re4')" alt="Fontaine">
+      <img src="{{ url_for('static', filename='logos/GI Logos/RE5.webp') }}" onclick="selectGame('re5')" alt="Natlan">
+    </div>
+
+    <!-- 📖 HISTORIA (LORE) -->
+    <div id="mascotStory" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>IRMINSUL_DATA_CORE.exe</span>
+          <span class="status">CONNECTED</span>
+        </div>
+        <div class="terminal-content">
+          <div id="terminalText">> LEYENDO REGISTROS...</div>
+          <div class="assistant-area">
+            <img src="{{ url_for('static', filename='pet/ZDL Pet/emocionado.png') }}" id="mascotImg" alt="Mascota">
+            <div class="assistant-dialogue">
+              <p id="storyText"></p>
+              <button onclick="nextStory()">Avanzar Crónica</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🎲 CURIOSIDADES -->
+    <div id="curiosidadesTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>REGIONAL_CURIOSITIES.dat</span>
+        </div>
+        <div class="terminal-content">
+          <div class="assistant-area" id="curiosityAssistant">
+            <img src="{{ url_for('static', filename='pet/GI Pet/neutro.png') }}" id="curiosityMascot" alt="Mascota">
+            <div class="assistant-dialogue">
+              <p id="curiosityText">> SELECCIONA EL EXPEDIENTE DE CURIOSIDADES...</p>
+            </div>
+          </div>
+          <br>
+          <div id="filesContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🕵️ MISTERIOS -->
+    <div id="misteriosTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>CELESTIA_ANOMALIES.conf</span>
+        </div>
+        <div class="terminal-content">
+          <div class="assistant-area" id="misteryAssistant">
+            <img src="{{ url_for('static', filename='pet/GI Pet/seguro.png') }}" id="misteryMascot" alt="Mascota">
+            <div class="assistant-dialogue">
+              <p id="misteryText">> ADVERTENCIA: ACCEDIENDO A MISTERIOS DE LA TRAMA:</p>
+            </div>
+          </div>
+          <br>
+          <div id="misteryFilesContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <button onclick="closeSelector()">Volver al Menú</button>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/GI Script/script.js') }}"></script>
+
+
+</body>
+</html>

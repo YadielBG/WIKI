@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Legend of Zelda</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/ZLD Styles/styles.css') }}">
+</head>
+
+<body>
+
+  <div id="bg-gif"></div>
+
+  <div id="overlay"></div>
+
+  <div id="floatingMascot">
+    <img src="{{ url_for('static', filename='pet/ZDL Pet/an1.png') }}" id="floatingMascotImg">
+    <div id="floatingDialogue">
+      ¡Yajajá! Encontré un secreto oculto en el mapa...
+    </div>
+  </div>
+
+  <header class="hero">
+    <img src="{{ url_for('static', filename='logos/ZLD Logos/logo Z.png') }}" class="logo">
+    <button onclick="scrollToSection()">
+      Explorar Reino
+    </button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Historia y Leyendas</h2>
+      <button onclick="openSelector('lore')">
+        Ver Crónicas
+      </button>
+    </section>
+
+    <section>
+      <h2>Misterios de Hyrule</h2>
+      <button onclick="openSelector('misterios')">
+        Ver Secretos
+      </button>
+    </section>
+
+    <section>
+      <h2>Curiosidades Ancestrales</h2>
+      <button onclick="openSelector('curiosidades')">
+        Ver Archivos
+      </button>
+    </section>
+  </main>
+
+  <div id="gameSelector" class="hidden">
+    <div class="box">
+      <h2 id="question">
+        ¿Qué región del mapa deseas explorar?
+      </h2>
+
+      <div class="games">
+        <img src="{{ url_for('static', filename='logos/ZLD Logos/map1.png') }}" title="Gran Meseta" onclick="selectGame('re0')">
+        <img src="{{ url_for('static', filename='logos/ZLD Logos/map2.png') }}" title="Montaña de la Muerte" onclick="selectGame('re1')">
+        <img src="{{ url_for('static', filename='logos/ZLD Logos/map3.png') }}" title="Región de los Zora" onclick="selectGame('re2')">
+        <img src="{{ url_for('static', filename='logos/ZLD Logos/map4.png') }}" title="Desierto Gerudo" onclick="selectGame('re3')">
+        <img src="{{ url_for('static', filename='logos/ZLD Logos/map5.png') }}" title="Castillo de Hyrule" onclick="selectGame('re4')">
+      </div>
+
+      <div id="mascotStory" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>SHEIKAH_SLATE_OS.exe</span>
+            <span class="status">CONNECTED</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="terminalText">
+              > ACCEDIENDO A LAS PIEDRAS GUÍA...
+            </div>
+            <div class="assistant-area">
+              <img src="{{ url_for('static', filename='pet/ZLD Pet/an1.png') }}" id="mascotImg">
+              <div class="assistant-dialogue">
+                <p id="storyText"></p>
+                <button onclick="nextStory()">
+                  Siguiente
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="curiosidadesTerminal" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>PERGAMINO_DE_CURIOSIDADES.dat</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="filesContainer"></div>
+            <div class="assistant-area hidden" id="curiosityAssistant">
+              <img src="{{ url_for('static', filename='pet/ZLD Pet/an3.png') }}" id="curiosityMascot">
+              <div class="assistant-dialogue">
+                <p id="curiosityText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="misteriosTerminal" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>REGISTROS_PROHIBIDOS_ZONNAN.exe</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="misteryFilesContainer"></div>
+            <div class="assistant-area hidden" id="misteryAssistant">
+              <img src="{{ url_for('static', filename='pet/ZLD Pet/an2.png') }}" id="misteryMascot">
+              <div class="assistant-dialogue">
+                <p id="misteryText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <button onclick="closeSelector()">
+        Volver al Mapa
+      </button>
+    </div>
+  </div>
+
+<script src="{{ url_for('static', filename='js/ZDL Script/script.js') }}"></script>
+
+
+</body>
+</html>

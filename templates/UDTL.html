@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+  <title>Undertale</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/UDTL Styles/styles.css') }}">
+
+</head>
+
+<body>
+
+<!-- 🎬 GIF FONDO -->
+
+<div id="bg-gif"></div>
+
+<!-- 🌑 OVERLAY -->
+
+<div id="overlay"></div>
+
+<!-- 🤖 MASCOTA GLOBAL -->
+
+<div id="floatingMascot">
+
+  <img src="{{ url_for('static', filename='pet/UDTL Pet/feliz.png') }}"
+  id="floatingMascotImg">
+
+  <div id="floatingDialogue">
+
+    Encontré nuevos archivos clasificados...
+
+  </div>
+
+</div>
+
+<!-- 🧭 HERO -->
+
+<header class="hero">
+
+  <img src="{{ url_for('static', filename='logos/UDTL Logos/logoU.png') }}"
+  class="logo">
+
+  <button onclick="scrollToSection()">
+    Explorar
+  </button>
+
+</header>
+
+<!-- 📚 SECCIONES -->
+
+<main>
+
+  <section>
+
+    <h2>Lore</h2>
+
+    <button onclick="openSelector('lore')">
+      Ver
+    </button>
+
+  </section>
+
+  <section>
+
+    <h2>Misterios</h2>
+
+    <button onclick="openSelector('misterios')">
+      Ver
+    </button>
+
+  </section>
+
+  <section>
+
+    <h2>Curiosidades</h2>
+
+    <button onclick="openSelector('curiosidades')">
+      Ver
+    </button>
+
+  </section>
+
+</main>
+
+<!-- 🎮 SELECTOR -->
+
+<div id="gameSelector" class="hidden">
+
+  <div class="box">
+
+    <h2 id="question">
+
+      ¿Qué zona quieres explorar?
+
+    </h2>
+
+    <!-- 🎮 LOGOS -->
+
+    <div class="games">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/ruins.png') }}"
+      onclick="selectGame('ruins')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/snowdin.png') }}"
+      onclick="selectGame('snowdin')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/waterfall.png') }}"
+      onclick="selectGame('waterfall')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/hotland.png') }}"
+      onclick="selectGame('hotland')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/core.png') }}"
+      onclick="selectGame('core')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/pacifist.png') }}"
+      onclick="selectGame('pacifist')">
+
+      <img src="{{ url_for('static', filename='logos/UDTL Logos/genocide.png') }}"
+      onclick="selectGame('genocide')">
+
+    </div>
+
+    <!-- 📖 LORE -->
+
+    <div id="mascotStory" class="hidden">
+
+      <div class="terminal-window">
+
+        <div class="terminal-header">
+
+          <span>
+            UNDERTALE_ARCHIVES.sys
+          </span>
+
+          <span class="status">
+            CONNECTED
+          </span>
+
+        </div>
+
+        <div class="terminal-content">
+
+          <div id="terminalText">
+
+            > ACCESSING FILE...
+
+          </div>
+
+          <div class="assistant-area">
+
+            <img src="{{ url_for('static', filename='pet/UDTL Pet/neutro.png') }}"
+            id="mascotImg">
+
+            <div class="assistant-dialogue">
+
+              <p id="storyText"></p>
+
+              <button onclick="nextStory()">
+                Siguiente
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 🎲 CURIOSIDADES -->
+
+    <div id="curiosidadesTerminal"
+    class="hidden">
+
+      <div class="terminal-window">
+
+        <div class="terminal-header">
+
+          <span>
+            MONSTER_RECORDS.sys
+          </span>
+
+        </div>
+
+        <div class="terminal-content">
+
+          <div id="filesContainer"></div>
+
+          <div class="assistant-area hidden"
+          id="curiosityAssistant">
+
+            <img src="{{ url_for('static', filename='pet/UDTL Pet/curioso.png') }}"
+            id="curiosityMascot">
+
+            <div class="assistant-dialogue">
+
+              <p id="curiosityText"></p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 🕵️ MISTERIOS -->
+
+    <div id="misteriosTerminal"
+    class="hidden">
+
+      <div class="terminal-window">
+
+        <div class="terminal-header">
+
+          <span>
+            TRUE_LAB_ACCES.sys
+          </span>
+
+        </div>
+
+        <div class="terminal-content">
+
+          <div id="misteryFilesContainer"></div>
+
+          <div class="assistant-area hidden"
+          id="misteryAssistant">
+
+            <img src="{{ url_for('static', filename='pet/UDTL Pet/miedo.png') }}"
+            id="misteryMascot">
+
+            <div class="assistant-dialogue">
+
+              <p id="misteryText"></p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <br>
+
+    <button onclick="closeSelector()">
+      Cerrar
+    </button>
+
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/UDTL Script/script.js') }}"></script>
+
+
+</body>
+</html>

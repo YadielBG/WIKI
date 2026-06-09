@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuphead</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/CUP Styles/styles.css') }}">
+
+</head>
+
+<body>
+
+  <div id="bg-gif"></div>
+
+  <div id="overlay"></div>
+
+  <div id="floatingMascot">
+    <img src="{{ url_for('static', filename='pet/CUP Pet/explicacion.png') }}"  id="floatingMascotImg">
+    <div id="floatingDialogue">
+      ¡No hagas tratos con el Diablo!
+    </div>
+  </div>
+
+  <header class="hero">
+    <img src="{{ url_for('static', filename='logos/CUP Logos/cuplogo.png') }}" class="logo">
+    <button onclick="scrollToSection()">
+      Ver Más
+    </button>
+  </header>
+
+  <main>
+    <section>
+      <h2>Lore y Contratos</h2>
+      <button onclick="openSelector('lore')">
+        Ver Historia
+      </button>
+    </section>
+
+    <section>
+      <h2>Estrategias y Armas</h2>
+      <button onclick="openSelector('misterios')">
+        Ver Builds
+      </button>
+    </section>
+
+    <section>
+      <h2>Secretos y Curiosidades</h2>
+      <button onclick="openSelector('curiosidades')">
+        Ver Secretos
+      </button>
+    </section>
+  </main>
+
+  <div id="gameSelector" class="hidden">
+    <div class="box">
+      <h2 id="question">
+        ¿Qué sección del mapa quieres explorar?
+      </h2>
+
+      <div class="games">
+        <img src="{{ url_for('static', filename='logos/CUP Logos/map1.png') }}" title="Inkwell Isle I" onclick="selectGame('re0')">
+        <img src="{{ url_for('static', filename='logos/CUP Logos/map2.png') }}" title="Inkwell Isle II" onclick="selectGame('re1')">
+        <img src="{{ url_for('static', filename='logos/CUP Logos/map3.png') }}" title="Inkwell Isle III" onclick="selectGame('re2')">
+        <img src="{{ url_for('static', filename='logos/CUP Logos/map4.png') }}" title="Inkwell Hell" onclick="selectGame('re3')">
+        <img src="{{ url_for('static', filename='logos/CUP Logos/map5.png') }}" title="The Delicious Last Course" onclick="selectGame('re4')">
+      </div>
+
+      <div id="mascotStory" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>INKWELL_CONTRACTS.exe</span>
+            <span class="status">DON'T DEAL WITH THE DEVIL</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="terminalText">
+              > ACCEDIENDO A LOS DEUDORES...
+            </div>
+            <div class="assistant-area">
+              <img src="{{ url_for('static', filename='pet/CUP Pet/idea.png') }}" id="mascotImg">
+              <div class="assistant-dialogue">
+                <p id="storyText"></p>
+                <button onclick="nextStory()">
+                  Siguiente
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="curiosidadesTerminal" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>HIDDEN_EASTER_EGGS.txt</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="filesContainer"></div>
+            <div class="assistant-area hidden" id="curiosityAssistant">
+              <img src="{{ url_for('static', filename='pet/CUP Pet/juego.png') }}" id="curiosityMascot">
+              <div class="assistant-dialogue">
+                <p id="curiosityText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="misteriosTerminal" class="hidden">
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span>GAMER_STRATEGIES.cfg</span>
+          </div>
+
+          <div class="terminal-content">
+            <div id="misteryFilesContainer"></div>
+            <div class="assistant-area hidden" id="misteryAssistant">
+              <img src="{{ url_for('static', filename='pet/CUP Pet/neutro.png') }}" id="misteryMascot">
+              <div class="assistant-dialogue">
+                <p id="misteryText"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <button onclick="closeSelector()">
+        Volver al Mapa
+      </button>
+    </div>
+  </div>
+
+<script src="{{ url_for('static', filename='js/CUP Script/script.js') }}"></script>
+
+  
+</body>
+</html>

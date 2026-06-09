@@ -1,0 +1,287 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace; /* Tipografía estilo máquina de escribir antigua */
+}
+
+body {
+  background-color: #1a1512; /* Un fondo café oscuro orgánico en lugar de negro puro */
+  color: #2b221a; /* Texto principal oscuro para los contenedores claros */
+  overflow-x: hidden;
+}
+
+/* 🎬 GIF DE FONDO */
+#bg-gif {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("/static/gif/CUPGIF/cgi.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  filter: sepia(0.3) brightness(0.6); /* Suaviza el fondo para que no canse la vista */
+}
+
+/* 🌑 OVERLAY GENERAL */
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, rgba(26,21,18,0.8) 100%);
+  z-index: -1;
+}
+
+/* 🤖 MASCOTA FLOTANTE */
+#floatingMascot {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  z-index: 9999;
+}
+
+#floatingMascotImg {
+  width: 110px;
+  filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.3));
+}
+
+#floatingDialogue {
+  background: #faf4e8; /* Color crema de papel envejecido */
+  border: 3px solid #2b221a;
+  border-radius: 16px; /* Bordes redondeados más amigables estilo caricatura */
+  padding: 15px;
+  width: 230px;
+  color: #2b221a;
+  font-weight: bold;
+  box-shadow: 4px 4px 0px #2b221a; /* Sombra sólida estilo cómic retro */
+  position: relative;
+}
+
+/* 🧭 HERO (Pantalla de bienvenida) */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 480px;
+  max-width: 85%;
+  filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+.hero button {
+  margin-top: 30px;
+}
+
+/* 📚 CONTENIDO PRINCIPAL */
+main {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* 🧱 SECCIONES PRINCIPALES ESTILO CARTEL ANTIGUO */
+section {
+  background: #fcf8f2; /* Tono pergamino suave y elegante, muy limpio */
+  border: 4px solid #2b221a; /* Bordes oscuros gruesos típicos de los dibujos animados */
+  border-radius: 12px;
+  padding: 35px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 6px 6px 0px rgba(43, 34, 26, 0.15); /* Sombra suave no forzada */
+}
+
+section h2 {
+  color: #b83b26; /* El icónico rojo apagado/vintage de Cuphead */
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* 🎛️ BOTONES ESTILO CARICATURA CLÁSICA */
+button {
+  padding: 12px 28px;
+  background: #e65c45; /* Rojo retro cálido */
+  border: 3px solid #2b221a;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 4px 0px #2b221a; /* Botón con relieve clásico */
+}
+
+button:hover {
+  background: #f7b731; /* Cambia a un amarillo/dorado cálido al pasar el cursor */
+  color: #2b221a;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 0px #2b221a;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px #2b221a;
+}
+
+/* 🎮 PANEL SELECTOR (Modal Completo) */
+#gameSelector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1512; /* Fondo cohesivo con el body */
+  z-index: 999;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.box {
+  max-width: 900px;
+  margin: auto;
+}
+
+#question {
+  text-align: center;
+  color: #faf4e8;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+/* 🎮 LOGOS DE LAS ISLAS / NIVELES */
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px 0 40px 0;
+}
+
+.games img {
+  width: 105px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0px 6px 6px rgba(0,0,0,0.4)) grayscale(0.2);
+}
+
+.games img:hover {
+  transform: scale(1.15) rotate(-3deg); /* Pequeña rotación divertida */
+  filter: drop-shadow(0px 8px 12px rgba(247, 183, 49, 0.5)) grayscale(0);
+}
+
+/* 💻 VENTANA DE LA TERMINAL DE DATOS (Estilo Fichero Retro) */
+.terminal-window {
+  background: #faf4e8;
+  border: 4px solid #2b221a;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #f2e6cf; /* Pestaña superior color cartón/fichero */
+  padding: 15px 20px;
+  border-bottom: 4px solid #2b221a;
+  color: #2b221a;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.terminal-content {
+  padding: 30px;
+  color: #2b221a;
+  font-size: 16px;
+}
+
+/* 🤖 MASCOTA INTERNA DEL FIHERO */
+.assistant-area {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+  margin-top: 35px;
+}
+
+#mascotImg,
+#curiosityMascot,
+#misteryMascot {
+  width: 120px;
+  filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+/* 💬 CUADRO DE DIÁLOGO INTERNO */
+.assistant-dialogue {
+  border: 3px solid #2b221a;
+  border-radius: 10px;
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  line-height: 1.6;
+  box-shadow: 4px 4px 0px rgba(43, 34, 26, 0.1);
+}
+
+/* 📁 CONTENEDORES DE TARJETAS (SECRETOS/ESTRATEGIAS) */
+#filesContainer,
+#misteryFilesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* 🃏 TARJETAS INTERACTIVAS COMO TICKETS/ENTRADAS DE TEATRO ANTIGUO */
+.file-card {
+  width: 220px;
+  padding: 20px;
+  background: #fff;
+  border: 3px solid #2b221a;
+  border-radius: 8px;
+  color: #2b221a;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px #2b221a;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  background: #f7b731; /* Se ilumina en un tono dorado muy amigable */
+  box-shadow: 6px 6px 0px #2b221a;
+}
+
+/* 📱 RESPONSIVE */
+
+@media(max-width:768px){
+
+  .assistant-area{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  #floatingMascot{
+    right:10px;
+    bottom:10px;
+    transform:scale(.85);
+  }
+
+  .games img{
+    width:80px;
+  }
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido a los archivos de Ark-Ark</title>
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/Inicio Styles/styles.css') }}">
+</head>
+<body>
+
+  <div class="scanlines"></div>
+
+  <main class="terminal-container">
+
+    <header class="terminal-header">
+      <div class="mascot-box">
+    <img src="{{ url_for('static', filename='pet/Inicio Pet/Macotaprincipal.png') }}"
+        <img src="" class="mascot-avatar glitch" alt="Mascota Asistente">
+        <div class="terminal-bubble">
+          <span class="cursor-text">> ARK-ARK_SYSTEM: ¡Hola {{ username }}! Conexión establecida con el archivero. Selecciona uno de los juegos disponibles a continuación...</span>
+        </div>
+      </div>
+    </header>
+
+    <hr class="terminal-divider">
+
+    <section class="system-status">
+      <p>[ STATUS: ONLINE ]</p>
+      <p>[ CORES: DEPLOYED ]</p>
+      <p>[ SELECT GAME TO ACCESS_ ]</p>
+    </section>
+
+    <nav class="matrix-grid">
+      
+    <!-- Resident Evil -->
+<a href="{{ url_for('resident') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/Resident_Evil.png') }}"
+    alt="Resident Evil"
+    class="game-logo">
+    Resident Evil
+</a>
+
+<!-- Undertale -->
+<a href="{{ url_for('undertale') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/Undertale.png') }}"
+    alt="Undertale"
+    class="game-logo">
+    Undertale
+</a>
+
+<!-- Genshin Impact -->
+<a href="{{ url_for('genshin') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/Genshin Impact.png') }}"
+    alt="Genshin Impact"
+    class="game-logo">
+    Genshin Impact
+</a>
+
+<!-- Poppy Playtime -->
+<a href="{{ url_for('poppy') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/PoppyPlaytime.webp') }}"
+    alt="Poppy Playtime"
+    class="game-logo">
+    Poppy Playtime
+</a>
+
+<!-- Pokémon -->
+<a href="{{ url_for('pokemon') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/pokemon.png') }}"
+    alt="Pokemon"
+    class="game-logo">
+    Pokémon
+</a>
+
+<!-- Little Nightmares -->
+<a href="{{ url_for('little_nightmares') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/little-nightmares.png') }}"
+    alt="Little Nightmares"
+    class="game-logo">
+    Little Nightmares
+</a>
+
+<!-- Five Nights at Freddy's -->
+<a href="{{ url_for('fnaf') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/FiveNightsatFreddy_s.png') }}"
+    alt="FNAF"
+    class="game-logo">
+    Five Nights at Freddy's
+</a>
+
+<!-- Zelda -->
+<a href="{{ url_for('zelda') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/Zelda.png') }}"
+    alt="Zelda"
+    class="game-logo">
+    Zelda
+</a>
+
+<!-- Cuphead -->
+<a href="{{ url_for('cuphead') }}" class="matrix-btn">
+    <img src="{{ url_for('static', filename='logos/inicio Logos/cuphead.png') }}"
+    alt="Cuphead"
+    class="game-logo">
+    Cuphead
+</a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

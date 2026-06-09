@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/PK Styles/styles.css') }}">
+
+</head>
+<body>
+<div id="bg-gif"></div>
+
+<div id="overlay"></div>
+
+<div id="floatingMascot">
+  <img src="{{ url_for('static', filename='pet/PK Pet/Mapaches_pokemon_8_UwU.png') }}" id="floatingMascotImg">
+  <div id="floatingDialogue">
+    ¡Hola! Soy tu guía en la Pokédex. ¿Qué quieres explorar?
+  </div>
+</div>
+
+<!-- 🧭 HERO -->
+
+<header class="hero">
+  <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_logo.png') }}" class="logo">
+  <button onclick="scrollToSection()">
+    Ver Más
+  </button>
+</header>
+
+<!-- 📚 SECCIONES PRINCIPALES -->
+
+<main>
+  <section>
+    <h2>Lore</h2>
+    <button onclick="openSelector('lore')">
+      Ver Historia
+    </button>
+  </section>
+
+  <section>
+    <h2>Misterios</h2>
+    <button onclick="openSelector('misterios')">
+      Ver Secretos
+    </button>
+  </section>
+  <section>
+
+    <h2>Curiosidades</h2>
+    <button onclick="openSelector('curiosidades')">
+      Ver Datos
+    </button>
+  </section>
+</main>
+
+<!-- 🎮 SELECTOR DE JUEGOS / REGIONES -->
+
+<div id="gameSelector" class="hidden">
+  <div class="box">
+    <h2 id="question">
+      ¿Qué región quieres explorar?
+    </h2>
+
+    <!-- 🎮 LOGOS DE JUEGOS -->
+
+    <div class="games">
+      <!-- Juegos de Pokémon -->
+      <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_Red.png') }}" onclick="selectGame('Pokémon Red')" title="Pokémon Red">
+      <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_Gold.png') }}" onclick="selectGame('Pokémon Gold')" title="Pokémon Gold">
+      <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_Emerald.png') }}" onclick="selectGame('Pokémon Emerald')" title="Pokémon Emerald">
+      <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_FireRed_Logo_EN.png') }}" onclick="selectGame('Pokémon FireRed')" title="Pokémon FireRed">
+      <img src="{{ url_for('static', filename='logos/PK Logos/Pokemon_Platinum.png') }}" onclick="selectGame('Pokémon Platinum')" title="Pokémon Platinum">
+      <img src="{{ url_for('static', filename='logos/PK Logos/poke heart.png') }}" onclick="selectGame('Pokémon HeartGold')" title="Pokémon HeartGold">
+      <img src="{{ url_for('static', filename='logos/PK Logos/poke negro 2.png') }}" onclick="selectGame('Pokémon Black 2')" title="Pokémon Black 2">
+      <img src="{{ url_for('static', filename='logos/PK Logos/poke x.png') }}" onclick="selectGame('Pokémon X')" title="Pokémon X">
+      <img src="{{ url_for('static', filename='logos/PK Logos/poke arceus.png') }}" onclick="selectGame('Pokémon Legends: Arceus')" title="Pokémon Legends: Arceus">
+      <img src="{{ url_for('static', filename='logos/PK Logos/poke escarlata.png') }}" onclick="selectGame('Pokémon Scarlet')" title="Pokémon Scarlet">
+    </div>
+
+    <!-- 📖 SISTEMA DE LORE (Historia) -->
+    <div id="mascotStory" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            POKÉDEX_HISTORY.db
+          </span>
+
+          <span class="status">
+            CONNECTED
+          </span>
+        </div>
+
+        <div class="terminal-content">
+          <div id="terminalText">
+            > LOADING REGION DATA...
+          </div>
+
+          <div class="assistant-area">
+            <img src="{{ url_for('static', filename='pet/PK Pet/Mapaches_pokemon_2.png') }}" id="mascotImg">
+            <div class="assistant-dialogue">
+              <p id="storyText"></p>
+              <button onclick="nextStory()">
+                Siguiente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🎲 SISTEMA DE CURIOSIDADES -->
+    <div id="curiosidadesTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            RECOVERED_DATA.exe
+          </span>
+        </div>
+
+        <div class="terminal-content">
+          <div id="filesContainer"></div>
+          <div class="assistant-area hidden" id="curiosityAssistant">
+            <img src="{{ url_for('static', filename='pet/PK Pet/Mapaches_pokemon_7¿.png') }}" id="curiosityMascot">
+            <div class="assistant-dialogue">
+              <p id="curiosityText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🕵️ SISTEMA DE MISTERIOS -->
+    <div id="misteriosTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            CLASSIFIED_FILES.investigation
+          </span>
+        </div>
+
+        <div class="terminal-content">
+          <div id="misteryFilesContainer"></div>
+          <div class="assistant-area hidden" id="misteryAssistant">
+            <img src="{{ url_for('static', filename='pet/PK Pet/Mapaches_pokemon_5.png') }}" id="misteryMascot">
+            <div class="assistant-dialogue">
+              <p id="misteryText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    
+    <button onclick="closeSelector()">
+      Cerrar Pokédex
+    </button>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/PK Script/script.js') }}"></script>
+
+
+</body>
+</html>

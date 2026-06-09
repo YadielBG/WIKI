@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poppy Playtime</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/PPT Styles/styles.css') }}">
+
+</head>
+<body>
+
+<div id="bg-gif"></div>
+
+<div id="overlay"></div>
+
+<div id="floatingMascot">
+  <img src="{{ url_for('static', filename='pet/PPT Pet/0.png') }}" id="floatingMascotImg" alt="Mascota">
+  <div id="floatingDialogue">
+    Todos creen que el personal desapareció hace diez años. Nosotros seguimos aquí. Encuentra la flor.
+  </div>
+</div>
+
+<header class="hero">
+  <img src="{{ url_for('static', filename='logos/PPT Logos/RE0.jpg') }}" class="logo" alt="Poppy Playtime Logo">
+  <button onclick="scrollToSection()">Explorar</button>
+</header>
+
+<main>
+  <section>
+    <h2>Historia</h2>
+    <button onclick="openSelector('lore')">Ver</button>
+  </section>
+
+  <section>
+    <h2>Misterios</h2>
+    <button onclick="openSelector('misterios')">Ver</button>
+  </section>
+
+  <section>
+    <h2>Curiosidades</h2>
+    <button onclick="openSelector('curiosidades')">Ver</button>
+  </section>
+</main>
+
+<div id="gameSelector" class="hidden">
+  <div class="box">
+    <h2 id="question">¿Qué capítulo quieres explorar?</h2>
+
+    <div class="games">
+      <img src="{{ url_for('static', filename='logos/PPT Logos/RE0.jpg') }}" onclick="selectGame('cap1')" alt="Capítulo 1">
+      <img src="{{ url_for('static', filename='logos/PPT Logos/RE1.webp') }}" onclick="selectGame('cap2')" alt="Capítulo 2">
+      <img src="{{ url_for('static', filename='logos/PPT Logos/RE2.jpg') }}" onclick="selectGame('cap3')" alt="Capítulo 3">
+    </div>
+
+    <div id="mascotStory" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>PLAYTIME_CO_DATABASE.exe</span>
+          <span class="status">CONNECTED</span>
+        </div>
+        <div class="terminal-content">
+          <div id="terminalText">> ACCESSING FILE...</div>
+          <div class="assistant-area">
+            <img src="{{ url_for('static', filename='pet/PPT Pet/0.png') }}" id="mascotImg" alt="Asistente">
+            <div class="assistant-dialogue">
+              <p id="storyText"></p>
+              <button onclick="nextStory()">Siguiente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="curiosidadesTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>RECOVERED_FILES.exe</span>
+        </div>
+        <div class="terminal-content">
+          <div class="assistant-area" id="curiosityAssistant">
+            <img src="{{ url_for('static', filename='pet/PPT Pet/0.png') }}" id="curiosityMascot" alt="Mascota">
+            <div class="assistant-dialogue">
+              <p id="curiosityText">> SELECCIONA UNA CINTA VHS PARA REPRODUCIR...</p>
+            </div>
+          </div>
+          <br>
+          <div id="filesContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="misteriosTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>CLASSIFIED_FILES.exe</span>
+        </div>
+        <div class="terminal-content">
+          <div class="assistant-area" id="misteryAssistant">
+            <img src="{{ url_for('static', filename='pet/PPT Pet/0.png') }}" id="misteryMascot" alt="Mascota">
+            <div class="assistant-dialogue">
+              <p id="misteryText">> ACCEDIENDO A ARCHIVOS RESTRINGIDOS... SELECCIONA UN EXPEDIENTE:</p>
+            </div>
+          </div>
+          <br>
+          <div id="misteryFilesContainer"></div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <button onclick="closeSelector()">Cerrar</button>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/PPT Script/script.js') }}"></script>
+
+
+</body>
+</html>

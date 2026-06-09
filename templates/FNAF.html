@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0">
+  <title>Five nights at freddy's</title>
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/FNAF Styles/styles.css') }}">
+</head>
+
+<body>
+<!-- 🎬 GIF FONDO -->
+<div id="bg-gif"></div>
+
+<!-- 🌑 OVERLAY -->
+<div id="overlay"></div>
+
+<!-- 🤖 MASCOTA GLOBAL -->
+<div id="floatingMascot">
+  <img src="{{ url_for('static', filename='pet/FNAF Pet/helpy1.gif') }}" id="floatingMascotImg">
+  <div id="floatingDialogue">
+    Encontré nuevos archivos clasificados...
+  </div>
+
+</div>
+
+<!-- 🧭 HERO -->
+<header class="hero">
+  <img src="{{ url_for('static', filename='logos/FNAF Logos/freddypizza.webp') }}"
+  class="logo">
+  <button onclick="scrollToSection()">
+    Ver Más
+  </button>
+</header>
+
+<!-- 📚 SECCIONES -->
+<main>
+  <section>
+    <h2>Lore</h2>
+    <button onclick="openSelector('lore')">
+      Ver
+    </button>
+  </section>
+
+  <section>
+    <h2>Misterios</h2>
+    <button onclick="openSelector('misterios')">
+      Ver
+    </button>
+  </section>
+
+  <section>
+    <h2>Curiosidades</h2>
+    <button onclick="openSelector('curiosidades')">
+      Ver
+    </button>
+  </section>
+
+</main>
+<!-- 🎮 SELECTOR -->
+<div id="gameSelector" class="hidden">
+  <div class="box">
+    <h2 id="question">
+      ¿Qué juego quieres explorar?
+    </h2>
+
+    <!-- 🎮 LOGOS -->
+    <div class="games">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAF1.png') }}"
+      onclick="selectGame('re0')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAF2.png') }}"
+      onclick="selectGame('re1')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAF3.png') }}"
+      onclick="selectGame('re2')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAF4.png') }}"
+      onclick="selectGame('re3')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFsl.png') }}"
+      onclick="selectGame('re4')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFps.png') }}"
+      onclick="selectGame('re5')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFUCN.ico') }}"
+      onclick="selectGame('re6')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFsb.webp') }}"
+      onclick="selectGame('re7')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFitp.png') }}"
+      onclick="selectGame('re8')">
+      <img src="{{ url_for('static', filename='logos/FNAF Logos/FNAFsotm.png') }}"
+      onclick="selectGame('re9')">
+    </div>
+
+    <!-- 📖 LORE -->
+    <div id="mascotStory" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            FREDDY_FAZBAER'S_DATABASE.exe
+          </span>
+
+          <span class="status">
+            CONNECTED
+          </span>
+        </div>
+
+        <div class="terminal-content">
+          <div id="terminalText">
+            > ACCESSING FILE...
+          </div>
+
+          <div class="assistant-area">
+            <img src="{{ url_for('static', filename='pet/FNAF Pet/helpy1.gif') }}" id="mascotImg">
+
+            <div class="assistant-dialogue">
+              <p id="storyText"></p>
+              <button onclick="nextStory()">
+                Siguiente
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🎲 CURIOSIDADES -->
+    <div id="curiosidadesTerminal"
+    class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            RECOVERED_FILES.exe
+          </span>
+        </div>
+
+        <div class="terminal-content">
+          <div id="filesContainer"></div>
+          <div class="assistant-area hidden"
+          id="curiosityAssistant">
+            <img src="{{ url_for('static', filename='pet/FNAF Pet/helpy1.gif') }}" id="curiosityMascot">
+            <div class="assistant-dialogue">
+              <p id="curiosityText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🕵️ MISTERIOS -->
+    <div id="misteriosTerminal"
+    class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span>
+            CLASSIFIED_FILES.exe
+          </span>
+
+        </div>
+        <div class="terminal-content">
+          <div id="misteryFilesContainer"></div>
+          <div class="assistant-area hidden"
+          id="misteryAssistant">
+            <img src="{{ url_for('static', filename='pet/FNAF Pet/helpy1.gif') }}" id="misteryMascot">
+            <div class="assistant-dialogue">
+              <p id="misteryText"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <button onclick="closeSelector()">
+      Cerrar
+    </button>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/FNAF Script/script.js') }}"></script>
+
+
+</body>
+</html>

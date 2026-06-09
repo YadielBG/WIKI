@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Little Nightmares</title>
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/LN Styles/styles.css') }}">
+
+</head>
+<body>
+
+<div id="bg-gif"></div>
+<div id="overlay"></div>
+
+<div id="floatingMascot">
+  <img src="{{ url_for('static', filename='pet/LN Pet/Mapaches_777.png') }}" id="floatingMascotImg">
+  <div id="floatingDialogue">¿Te has perdido en la transmisión?</div>
+</div>
+
+<header class="hero">
+  <img src="{{ url_for('static', filename='logos/LN Logos/logo1.0.png') }}" class="logo">
+  <button onclick="scrollToSection()">Ver más</button>
+</header>
+
+<main>
+  <section>
+    <h2>Lore</h2>
+    <button onclick="openSelector('lore')">VER HISTORIA</button>
+  </section>
+  <section>
+    <h2>Misterios</h2>
+    <button onclick="openSelector('misterios')">VER PESADILLAS</button>
+  </section>
+  <section>
+    <h2>Curiosidades</h2>
+    <button onclick="openSelector('curiosidades')">VER ARCHIVOS</button>
+  </section>
+</main>
+
+<div id="gameSelector" class="hidden">
+  <div class="box">
+    <h2 id="question">¿En qué pesadilla quieres adentrarte?</h2>
+
+    <div class="games">
+      <img src="{{ url_for('static', filename='logos/LN Logos/I.png') }}" onclick="selectGame('Little Nightmares')" title="Little Nightmares">
+      <img src="{{ url_for('static', filename='logos/LN Logos/II.png') }}" onclick="selectGame('Little Nightmares II')" title="Little Nightmares II">
+      <img src="{{ url_for('static', filename='logos/LN Logos/III.png') }}" onclick="selectGame('Little Nightmares III')" title="Little Nightmares III">
+    </div>
+
+    <div id="mascotStory" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header"><span>THE_MAW_LOGS.raw</span></div>
+        <div class="terminal-content">
+          <div class="assistant-area">
+            <img src="{{ url_for('static', filename='pet/LN Pet/Mapaches_9.png') }}" id="mascotImg">
+            <div class="assistant-dialogue">
+              <p id="storyText" style="white-space: pre-wrap;"></p>
+              <button onclick="nextStory()">Siguiente</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="curiosidadesTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header"><span>TRANSCRIPTIONS.exe</span></div>
+        <div class="terminal-content">
+          <div id="filesContainer"></div>
+          <div class="assistant-area hidden" id="curiosityAssistant">
+            <img src="{{ url_for('static', filename='pet/LN Pet/Mapaches_2.png') }}" id="curiosityMascot">
+            <div class="assistant-dialogue"><p id="curiosityText" style="white-space: pre-wrap;"></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="misteriosTerminal" class="hidden">
+      <div class="terminal-window">
+        <div class="terminal-header"><span>RESTRICTED_TRANSMISSION.inv</span></div>
+        <div class="terminal-content">
+          <div id="misteryFilesContainer"></div>
+          <div class="assistant-area hidden" id="misteryAssistant">
+            <img src="{{ url_for('static', filename='pet/LN Pet/Mapaches_8cho.png') }}" id="misteryMascot">
+            <div class="assistant-dialogue"><p id="misteryText" style="white-space: pre-wrap;"></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <button onclick="closeSelector()" class="btn-exit">ESCAPAR</button>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/LN Script/script.js') }}"></script>
+
+
+</body>
+</html>

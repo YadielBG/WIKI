@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+:root {
+  --ln-yellow: #d4af37;
+  --ln-signal-cyan: #5edfff;
+  --ln-bg-black: #050505;
+}
+
+body {
+  background: black;
+  color: #ccc;
+  font-family: 'Special Elite', serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* 🎬 FONDO */
+#bg-gif {
+  position: fixed;
+  width: 100%; height: 100%;
+  background: url("/static/gif/LNGIF/ln.gif");
+  background-size: cover;
+  z-index: -2;
+  filter: brightness(0.2) grayscale(1);
+}
+
+#overlay {
+  position: fixed;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 90%);
+  z-index: -1;
+}
+
+/* 🧭 HERO Y SECCIONES */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 450px;           /* Tamaño actual que tienes en tu CSS */
+  height: auto;           /* Mantiene la proporción de la imagen */
+  
+  /* --- EL TRUCO PARA QUITAR EL NEGRO --- */
+  mix-blend-mode: screen; 
+  
+  /* --- AJUSTES PARA QUE SEA REDONDO --- */
+  aspect-ratio: 1 / 1;    /* Fuerza a que sea un cuadrado perfecto para poder redondearlo */
+  object-fit: contain;    /* Asegura que el logo no se corte */
+}
+
+main { padding: 50px; max-width: 900px; margin: auto; }
+
+section {
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid var(--ln-signal-cyan);
+  box-shadow: 0 0 15px rgba(94, 223, 255, 0.3);
+  padding: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 25px;
+  background: transparent;
+  border: 1px solid var(--ln-signal-cyan);
+  color: var(--ln-signal-cyan);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--ln-yellow);
+  color: black;
+  border-color: var(--ln-yellow);
+  box-shadow: 0 0 15px var(--ln-yellow);
+}
+
+/* 🎮 SELECTOR */
+#gameSelector {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 999;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.box { max-width: 1000px; margin: auto; }
+
+.games { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
+
+.games img {
+  width: 150px;
+  cursor: pointer;
+  filter: grayscale(1);
+  transition: 0.3s;
+}
+
+.games img:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--ln-yellow);
+}
+
+/* 🖥️ TERMINAL */
+.terminal-window {
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.terminal-header {
+  background: #1a1a1a;
+  padding: 10px;
+  color: var(--ln-signal-cyan);
+  display: flex;
+  justify-content: space-between;
+}
+
+.terminal-content {
+  padding: 20px;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  background-size: 100% 2px, 2px 100%;
+}
+
+.assistant-area { display: flex; gap: 20px; align-items: center; margin-top: 20px; }
+
+#mascotImg, #curiosityMascot, #misteryMascot { width: 80px; filter: grayscale(1); }
+
+.assistant-dialogue { background: #111; border: 1px solid #444; padding: 20px; width: 100%; color: #eee; }
+
+/* 📁 CARDS */
+#filesContainer, #misteryFilesContainer { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+
+.file-card {
+  padding: 15px;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  cursor: pointer;
+  color: var(--ln-signal-cyan);
+}
+
+.file-card:hover { background: var(--ln-signal-cyan); color: black; }
+
+/* 🤖 FLOATING MASCOT */
+#floatingMascot { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; z-index: 1000; }
+#floatingDialogue { background: #000; border-left: 3px solid var(--ln-yellow); padding: 10px; width: 180px; font-size: 12px; margin-right: 10px; }
+#floatingMascotImg { width: 80px; }
+
+.hidden { display: none !important; }
+
+/* 📱 RESPONSIVE */
+
+@media(max-width:768px){
+
+  .assistant-area{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  #floatingMascot{
+    right:10px;
+    bottom:10px;
+    transform:scale(.85);
+  }
+
+  .games img{
+    width:80px;
+  }
+
+}
