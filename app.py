@@ -72,7 +72,7 @@ def login():
 
         flash("Usuario o contraseña incorrectos")
 
-    return render_template("Login.html")
+    return render_template("login.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
